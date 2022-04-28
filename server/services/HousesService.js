@@ -10,7 +10,7 @@ class HousesService
 
     async getByID(id)
     {
-        const found = await dbContext.Houses.findById(id)/populate("creator", "name");
+        const found = await dbContext.Houses.findById(id).populate("creator", "name");
         if(!found)
         {
             throw new BadRequest(`House with id ${id} not found.`);
